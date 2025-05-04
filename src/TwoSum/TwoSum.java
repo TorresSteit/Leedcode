@@ -6,22 +6,15 @@ import java.util.HashMap;
 public class TwoSum {
     public int[] twoSum(int[] nums, int target) {
         HashMap<Integer, Integer> map = new HashMap<>();
-
-        // Проходим по массиву
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i <nums.length ; i++) {
             int complement = target - nums[i];
-
-            // Если дополнительное число уже есть в хеш-таблице, возвращаем его индекс и текущий индекс
             if (map.containsKey(complement)) {
-                return new int[] {map.get(complement), i};
+                return new int[]{map.get(complement), i};
             }
-
-            // Если числа нет, добавляем текущее число в хеш-таблицу
             map.put(nums[i], i);
-        }
 
-        // Если не найдено решения, можно вернуть пустой массив или null
-        return null;
+        }
+        throw new IllegalArgumentException("No two sum solution");
     }
 
     public static void main(String[] args) {
